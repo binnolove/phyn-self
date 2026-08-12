@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Một không gian trò chuyện yên tĩnh để lắng nghe, gỡ rối và hiểu chính mình.">
+  <title>Khoảng Lặng — AI Tâm Sự</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="cinema-bg" aria-hidden="true">
+    <div class="ambient ambient-a"></div>
+    <div class="ambient ambient-b"></div>
+    <div class="grain"></div>
+    <div class="vignette"></div>
+  </div>
+
+  <main id="app" class="app">
+    <section id="homeView" class="view home-view">
+      <div class="topbar">
+        <div class="brand"><span class="brand-dot"></span> KHOẢNG LẶNG</div>
+        <button class="ghost-btn" id="aboutBtn">về nơi này</button>
+      </div>
+
+      <div class="hero">
+        <p class="eyebrow reveal">MỘT NƠI ĐỂ NÓI RA</p>
+        <h1 class="hero-title reveal delay-1">
+          Hôm nay<br>
+          <em>trong đầu cậu</em><br>
+          có gì?
+        </h1>
+        <p class="hero-copy reveal delay-2">
+          Không cần phải biết bắt đầu từ đâu.<br>
+          Cứ viết điều đầu tiên xuất hiện trong đầu cậu.
+        </p>
+
+        <form id="startForm" class="start-form reveal delay-3">
+          <textarea id="startInput" rows="2" maxlength="1200"
+            placeholder="Tớ đang nghĩ về..." aria-label="Điều bạn muốn chia sẻ"></textarea>
+          <div class="form-bottom">
+            <span class="privacy-note">Không phán xét · không cần hoàn hảo</span>
+            <button class="primary-btn" type="submit">
+              <span>Bắt đầu nói chuyện</span><span class="arrow">↗</span>
+            </button>
+          </div>
+        </form>
+
+        <div class="quick-picks reveal delay-4">
+          <button data-starter="Tớ đang buồn nhưng không biết vì sao.">Tôi đang buồn</button>
+          <button data-starter="Tớ đang overthinking rất nhiều.">Tôi đang overthinking</button>
+          <button data-starter="Tớ không hiểu cảm xúc của mình.">Tôi không hiểu mình</button>
+          <button data-starter="Tớ chỉ muốn có ai đó lắng nghe.">Tôi chỉ muốn tâm sự</button>
+        </div>
+      </div>
+
+      <div class="home-footer">
+        <span>AI hỗ trợ phản tư · Không thay thế chuyên gia tâm lý</span>
+        <span class="status"><i></i> không gian riêng tư</span>
+      </div>
+    </section>
+
+    <section id="chatView" class="view chat-view hidden">
+      <header class="chat-topbar">
+        <button id="backHome" class="icon-btn" aria-label="Quay lại">←</button>
+        <div class="chat-title">
+          <span class="brand-dot"></span>
+          <span>KHOẢNG LẶNG</span>
+        </div>
+        <button id="reflectionBtn" class="ghost-btn">nhìn lại</button>
+      </header>
+
+      <div id="chatMessages" class="messages" aria-live="polite"></div>
+
+      <div class="chat-composer-wrap">
+        <form id="chatForm" class="chat-form">
+          <textarea id="chatInput" rows="1" maxlength="3000"
+            placeholder="Cứ kể tiếp đi..." aria-label="Tin nhắn"></textarea>
+          <button class="send-btn" type="submit" aria-label="Gửi">↗</button>
+        </form>
+        <div class="composer-hint">Enter để gửi · Shift + Enter để xuống dòng</div>
+      </div>
+    </section>
+
+    <section id="reflectionView" class="view reflection-view hidden">
+      <header class="chat-topbar">
+        <button id="backChat" class="icon-btn">←</button>
+        <div class="chat-title"><span class="brand-dot"></span> NHÌN LẠI</div>
+        <span class="quiet-label">reflection</span>
+      </header>
+      <div class="reflection-shell">
+        <p class="eyebrow">MỘT GÓC NHÌN NHỎ</p>
+        <h2>Thử nhìn câu chuyện<br><em>từ một khoảng cách khác.</em></h2>
+        <div id="reflectionContent" class="reflection-grid"></div>
+      </div>
+    </section>
+
+    <dialog id="aboutDialog" class="about-dialog">
+      <button id="closeAbout" class="dialog-close">×</button>
+      <p class="eyebrow">VỀ KHOẢNG LẶNG</p>
+      <h2>Một nơi để<br><em>không phải giả vờ ổn.</em></h2>
+      <p>Khoảng Lặng là một concept AI trò chuyện được thiết kế quanh việc lắng nghe, phản chiếu và giúp người dùng hiểu cảm xúc của chính mình.</p>
+      <p class="dialog-small">Đây là prototype giao diện. Nội dung AI hiện dùng engine mô phỏng ở phía trình duyệt; khi tích hợp model thật, API key phải được giữ ở server.</p>
+    </dialog>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
